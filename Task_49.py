@@ -1,4 +1,6 @@
 
+"""К сожалению много работы. Все, что успел. Ведь фактически это полноценный проект)))"""
+
 
 def work_with_phonebook():
     choice = show_menu()
@@ -88,16 +90,15 @@ def print_text(text_print):
 def import_data(text_add, phonebook):
     try:
         with open(text_add, 'r', encoding='utf-8') as new_contacts, open(phonebook, 'a', encoding='utf-8') as file:
-            num_str = input('Введите номер строки: ')
-            contacts_to_add = new_contacts.readlines(num_str)
-            file.writelines(contacts_to_add)
+            data_add = new_contacts.readlines()
+            file.writelines(data_add)
     except FileNotFoundError:
         print(f'{text_add} не найден')
 
 
 def export_data(text_exp, phonebook):
     with open(text_exp, 'w', encoding='utf-8') as new_contacts, open(phonebook, 'r', encoding='utf-8') as file:
-        num_str = [int(input('Введите номер строкb: '))]
+        num_str = [int(input('Введите номер строки: '))]
         print(num_str)
         for lines, line in enumerate(file):
             if lines + 1 in num_str:
