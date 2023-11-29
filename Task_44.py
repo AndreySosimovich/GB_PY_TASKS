@@ -1,5 +1,9 @@
+"""В ячейке ниже представлен код генерирующий DataFrame, которая состоит всего из 1 столбца. 
+Ваша задача перевести его в one hot вид. 
+Сможете ли вы это сделать без get_dummies?"""
+
 import random
-import pandas as pd 
+import pandas as pd
 
 lst = ['robot'] * 10
 lst += ['human'] * 10
@@ -13,5 +17,3 @@ data.set_index([data.index, 'whoAmI'], inplace=True)
 data = data.unstack(level=1, fill_value=0).astype(int)
 data.columns = data.columns.droplevel()
 print(data)
-
- 
